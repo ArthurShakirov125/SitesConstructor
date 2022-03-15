@@ -3,8 +3,8 @@
   "description": "",
   "scripts": {
     "dev": "gulp",
-    "build":"gulp build",
-    "gulp-styles":"gulp styles"
+    "build": "gulp build",
+    "gulp-styles": "gulp styles"
   },
   "author": "Artur Shakirov",
   "devDependencies": {
@@ -25,5 +25,8 @@
     "gulp-sourcemaps": "^3.0.0",
     "gulp-svg-sprite": "^1.5.0",
     "gulp-uglify-es": "^3.0.0"
+  },
+  "dependencies": {
+    "gulp-less": "^5.0.0"
   }
 }

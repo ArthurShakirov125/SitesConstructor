@@ -12,6 +12,7 @@ const uglify = require("gulp-uglify-es").default;
 const notify = require("gulp-notify");
 const sourceMaps = require('gulp-sourcemaps');
 const del = require("del");
+const less = require("gulp-less");
 
 const styles = () => {
     return src('src/**/*.css')
@@ -22,8 +23,20 @@ const styles = () => {
         level:2
     }))
     .pipe(sourceMaps.write())
-    .pipe(dest("dist"))
+    .pipe(dest("dist/styles"))
     .pipe(browserSync.stream())
+    .pipe(browserSync.stream())
+}
+
+const stylesless = () =>{
+    return src("src/**/*.less")
+    .pipe(sourceMaps.init())
+    .pipe(less())
+    .pipe(concat("styleLess.css"))
+    .pipe(autoprefixer())
+    .pipe(cleancss())
+    .pipe(sourceMaps.write())
+    .pipe(dest("dist/styles"))
 }
 
 const stylesBuild = () => {
@@ -33,7 +46,7 @@ const stylesBuild = () => {
     .pipe(cleancss({
         level:2
     }))
-    .pipe(dest("dist"))
+    .pipe(dest("dist/styles"))
     .pipe(browserSync.stream())
 }
 
@@ -142,5 +155,5 @@ exports.htmlMinify = htmlMinify;
 exports.scripts = scripts;
 exports.clean = clean;
 
-exports.build = series(clean, stylesBuild, htmlMinify, scriptsBuild, resources, images, svgSprites);
-exports.default = series(clean, styles, html, svgSprites, scripts,resources, images, watchFile);
+exports.build = series(clean, stylesBuild, htmlMinify, scriptsBuild, stylesless, resources, images, svgSprites);
+exports.default = series(clean, styles, html, svgSprites, scripts,resources, stylesless, images, watchFile);
