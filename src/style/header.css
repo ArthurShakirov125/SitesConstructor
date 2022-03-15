@@ -1,0 +1,65 @@
+header{
+    min-height: 100px;
+    background-color: white;
+}
+  
+  .section {
+    text-decoration-line: none;
+  }
+  
+  .section__wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  
+  .header-menu {
+    min-height: 100px;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 100;
+  }
+  
+  
+ .header__img__burger-M{
+    z-index: 1000;
+    top: 0;
+    cursor: pointer;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    margin-left: 50px;
+    margin-right: 25px;
+  }
+
+  .header__logo{
+    text-decoration: none;
+  }
+
+  .header__img__logo-text{
+    width: 192px;
+    height: 80px;
+  }
+  main{
+   flex-grow: 1;
+  }
+  .mainmenu__title{
+    display: flex;
+    font-weight: 600;
+    line-height: 1.14;
+    text-transform: uppercase;
+    max-width: 240px;
+    margin-left: 350px;
+    margin-top: -50px;
+  }
+
+  .mainmenu__title__right{
+    font-weight: 600;
+    text-transform: uppercase;
+    max-width: 240px;
+    margin-right: 50px;
+  }
+
+  .mainmenu__item{
+      margin-top: 33px;
+  }
