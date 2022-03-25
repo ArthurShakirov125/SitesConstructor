@@ -1,4 +1,5 @@
 @temp_color:#FC7C0D;
+@font-size:20px;
 .templates{
     margin-top:20px;
     display:flex;
@@ -10,4 +11,15 @@
     height: 450px;
     border-radius: 25px;
     background-color: @temp_color;
+    position: relative;
+}
+.temp_button{
+    position: absolute;
+    bottom: 100px;
+    left: 125px;
+    width: 250px;
+    height: 42px;
+    font-size: @font-size;
+    transition: 0.55s;
+    opacity: 0;
 }
