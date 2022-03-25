@@ -1,12 +1,34 @@
-@grid: grid;
+@g: grid;
+@f: flex;
+
 
 .catalog{
-    display: @grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    row-gap: 100px;
-    column-gap: 30px;
+    display: @g;
+    grid-template-columns: 1fr;
+    width: 150px;
 }
 
 .catalog__item{
-   
+   width: 150px;
 }
+
+.main_body{
+    display: grid;
+}
+
+button {
+    background: white; /* Синий цвет фона */
+    color: black; /* Белый цвет текста */
+    border: none; /* Убираем рамку */
+    padding: 1rem 1.5rem; /* Поля вокруг текста */
+    text-align: center;
+    align-items: center;
+    width: 200px;
+   }
+
+button:hover{
+    background: grey; /* Синий цвет фона */
+    color: white; /* Белый цвет текста */
+    transition: 0.5s;
+}
+
