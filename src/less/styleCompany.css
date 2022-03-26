@@ -1,0 +1,68 @@
+.header_company {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  min-height: 50px;
+  background-color: white;
+  text-decoration: none;
+}
+.header_company .logo {
+  margin: 0px 30px 30px 48px;
+}
+.header_company .search_product {
+  width: 500px;
+  background-color: grey;
+  transition: 0.5s;
+}
+.header_company .search_product:hover {
+  background: white;
+  transition: 0.5s;
+}
+.header_company .button_search {
+  background: none;
+  color: black;
+  border: none;
+  text-align: center;
+  align-items: center;
+  margin-left: -50px;
+}
+.header_company button {
+  height: 30%;
+  background: white;
+  color: black;
+  border: none;
+  text-align: center;
+  align-items: center;
+  transition: 0.5s;
+}
+.header_company button:hover {
+  background: grey;
+  color: white;
+  transition: 0.5s;
+}
+.header_company .button_menu {
+  margin-left: 10px;
+}
+.catalog {
+  display: grid;
+  grid-template-columns: 1fr;
+  width: 150px;
+}
+.main_body {
+  display: grid;
+}
+.main_body .catalog__item button {
+  background: white;
+  color: black;
+  border: none;
+  padding: 1rem 1.5rem;
+  text-align: center;
+  align-items: center;
+  width: 200px;
+  transition: 0.5s;
+}
+.main_body .catalog__item button:hover {
+  background: grey;
+  color: white;
+  transition: 0.5s;
+}

@@ -1,6 +1,60 @@
 @g: grid;
 @f: flex;
 
+.header_company{
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    min-height: 50px;
+    background-color: white;
+    text-decoration: none;
+
+    .logo{
+        margin: 0px 30px 30px 48px;
+    }
+
+    .search_product{
+        width: 500px;
+        background-color: grey;
+        transition: 0.5s;
+
+        &:hover{
+            background: white;
+            transition: 0.5s;
+         }
+    }
+    
+    .button_search{
+        background: none;
+        color: black; 
+        border: none; 
+        text-align: center;
+        align-items: center;
+        margin-left: -50px;
+    }
+
+    button{
+        height: 30%;
+        background: white;
+        color: black; 
+        border: none; 
+        text-align: center;
+        align-items: center;
+        transition: 0.5s;
+
+           
+        &:hover{
+            background: grey;
+            color: white;
+            transition: 0.5s;
+         }
+    }
+
+    .button_menu{
+        margin-left: 10px;
+    }
+
+}
 
 .catalog{
     display: @g;
@@ -8,27 +62,27 @@
     width: 150px;
 }
 
-.catalog__item{
-   width: 150px;
-}
-
 .main_body{
     display: grid;
+
+    .catalog__item button {
+        background: white;
+        color: black; 
+        border: none; 
+        padding: 1rem 1.5rem;
+        text-align: center;
+        align-items: center;
+        width: 200px;
+        transition: 0.5s;
+        
+        &:hover{
+            background: grey;
+            color: white;
+            transition: 0.5s;
+         }
+    }
 }
 
-.catalog__item button {
-    background: white; /* Синий цвет фона */
-    color: black; /* Белый цвет текста */
-    border: none; /* Убираем рамку */
-    padding: 1rem 1.5rem; /* Поля вокруг текста */
-    text-align: center;
-    align-items: center;
-    width: 200px;
-   }
 
-.catalog__item button:hover{
-    background: grey; /* Синий цвет фона */
-    color: white; /* Белый цвет текста */
-    transition: 0.5s;
-}
+
 
