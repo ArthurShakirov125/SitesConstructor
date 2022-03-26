@@ -113,6 +113,36 @@ const scriptsBuild = () =>{
     .pipe(browserSync.stream())
 }
 
+const temp1_scriptsBuild = () =>{
+    return src([
+        "src/js/template1/**/*.js",
+    ])
+    .pipe(babel({
+        presets:["@babel/env"]
+    }))
+    .pipe(concat("temp1.js"))
+    .pipe(uglify({
+        toplevel:true
+    }).on("error", notify.onError()))
+    .pipe(dest("dist"))
+    .pipe(browserSync.stream())
+}
+
+const temp2_scriptsBuild = () =>{
+    return src([
+        "src/js/template2/**/*.js",
+    ])
+    .pipe(babel({
+        presets:["@babel/env"]
+    }))
+    .pipe(concat("temp2.js"))
+    .pipe(uglify({
+        toplevel:true
+    }).on("error", notify.onError()))
+    .pipe(dest("dist"))
+    .pipe(browserSync.stream())
+}
+
 const scripts = () =>{
     return src([
         "src/js/components/**/*.js",
@@ -156,5 +186,5 @@ exports.htmlMinify = htmlMinify;
 exports.scripts = scripts;
 exports.clean = clean;
 
-exports.build = series(clean, stylesBuild, htmlMinify, scriptsBuild, stylesless, resources, images, svgSprites);
-exports.default = series(clean, styles, html, svgSprites, scripts,resources, stylesless, images, watchFile);
+exports.build = series(clean, stylesBuild, htmlMinify, scriptsBuild, temp1_scriptsBuild, temp2_scriptsBuild, stylesless, resources, images, svgSprites);
+exports.default = series(clean, styles, html, svgSprites, scripts, temp1_scriptsBuild, temp2_scriptsBuild, resources, stylesless, images, watchFile);
