@@ -25,7 +25,6 @@ const styles = () => {
     .pipe(sourceMaps.write())
     .pipe(dest("dist/styles"))
     .pipe(browserSync.stream())
-    .pipe(browserSync.stream())
 }
 
 const stylesless = () =>{
@@ -37,6 +36,7 @@ const stylesless = () =>{
     .pipe(cleancss())
     .pipe(sourceMaps.write())
     .pipe(dest("dist/styles"))
+    .pipe(browserSync.stream())
 }
 
 const stylesBuild = () => {
@@ -142,6 +142,7 @@ watch("src/**/*.css", styles);
 watch("src/**/*.html", htmlMinify);
 watch("src/images/svg/**/*.svg", htmlMinify);
 watch("src/js/**/*.js", scripts);
+watch("src/**/*.less", stylesless);
 
 watch([
     "src/images/**/*.jpeg",
