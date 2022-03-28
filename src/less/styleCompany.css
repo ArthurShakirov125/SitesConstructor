@@ -6,6 +6,8 @@ a {
   display: flex;
   flex-direction: column;
   grid-template-columns: 1fr;
+  border: 1px solid black;
+  width: 68%;
 }
 .main_body .catalog__item button {
   background: white;
@@ -70,8 +72,8 @@ a {
 .Section_com {
   display: grid;
   border: 1px solid black;
-  width: 260px;
-  height: 200px;
+  width: 71%;
+  height: 50%;
   grid-column: 4/7;
   grid-row: 1/2;
 }
@@ -104,6 +106,14 @@ a {
   background: grey;
   color: white;
   transition: 0.5s;
+}
+.Section_com1 {
+  display: grid;
+  border: 1px solid black;
+  width: 60%;
+  height: 50%;
+  grid-column: 2/6;
+  grid-row: 1/2;
 }
 .main {
   display: grid;
