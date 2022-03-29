@@ -24,3 +24,6 @@ body{
     margin: 0 auto;
     padding: 0 20px;
 }
+li{
+    list-style-type: none; /* Убираем маркеры */
+   }

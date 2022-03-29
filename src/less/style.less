@@ -2,10 +2,11 @@
 @font-size:20px;
 @icon-size:60px;
 @border-radius: 0.5;
+@editor-width:@icon-size+ 10px;
+@editor_window_width:400px;
 
 @temp_color:#FC7C0D;
 @green:#16A085;
-@red:#C82647;
 @green-l:#8CC63F;
 @orange:#EB9532;
 @purple:#7E3661;
@@ -35,12 +36,13 @@
 .editor{
     padding: 5px;
     position: fixed;
-    height: 1000px;
-    width: @icon-size + 10px;
+    height: 100%;
+    width: @editor-width;
     background-color: @white;
     left: 0;
     top: 0;
     box-shadow: 1px 2px 1px 1px gray;
+    z-index: 5;
   }
 
 .icon{
@@ -51,6 +53,7 @@
     height: @icon-size;
     border-radius: @icon-size*@border-radius;
     overflow: hidden;
+    padding: auto;
     &::before, &::after{
       content: '';
       position: absolute;
@@ -63,15 +66,52 @@
     }
 }
 
-.icon-expand{
+.icon{
     &::after{
-      box-shadow: inset 0 0 0 1px @red;
+      box-shadow: inset 0 0 0 1px @temp_color;
     }
     &::before{
-      background: @red;
+      background: @temp_color;
       box-shadow: inset 0 0 0 @icon-size @white;
+      z-index: -1;
     }
     &:hover::before{
       box-shadow: inset 0 0 0 1px @white;
     }
+}
+
+.icon_image{
+  margin-top: 10px;
+}
+
+.editor_window{
+  height: 500px;
+  width: @editor_window_width;
+  box-shadow: 1px 2px 1px 1px gray;
+  position: fixed;
+  top: 100px;
+  left: @editor-width + 3px;
+  background: @white;
+  h3{
+    margin-left:125px;
   }
+  ul{
+    cursor: pointer;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-weight: bold;
+    transition: all 0.25s ease;;
+  }
+  ul{
+    &:hover{
+      background-color: @temp_color;
+    }
+  }
+}
+
+.temp_strip{
+  width: 100%;
+  height: 400px;
+  background-color: @green-l;
+}
+

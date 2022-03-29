@@ -173,6 +173,8 @@ watch("src/**/*.html", htmlMinify);
 watch("src/images/svg/**/*.svg", htmlMinify);
 watch("src/js/**/*.js", scripts);
 watch("src/**/*.less", stylesless);
+watch("src/js/template1/**/*.js", temp1_scriptsBuild);
+watch("src/js/template2/**/*.js", temp2_scriptsBuild);
 
 watch([
     "src/images/**/*.jpeg",
