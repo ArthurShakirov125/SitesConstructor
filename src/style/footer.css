@@ -29,6 +29,7 @@ footer{
   list-style-type: none;
   flex-wrap: wrap;
   flex-direction: column;
+  margin-bottom: 20px;
 }
 .footer_list__street{
   padding-bottom: 20px;
