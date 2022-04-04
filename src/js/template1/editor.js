@@ -37,14 +37,15 @@ class Tools_menu{
     editor;
     menu_content =`<h3>Инструменты</h3>
     <li>
-    <ul class="add_strip">Добавить элемент</ul>
-    <ul class="add_list">Добавить элемент</ul>
+    <ul class="add_strip">Добавить блок</ul>
+    <ul class="add_text">Добавить текст</ul>
     <ul class="add_form">Добавить элемент</ul>
-    <ul class="add_gallery">Добавить элемент</ul>
+    <ul class="add_gallery">Добавить галлерею</ul>
     </li>`;
 
     add_strip_btn;
-    
+    add_text_field_btn;
+    add_gallery_btn;
 
     constructor(editor){
         this.editor = editor;
@@ -68,11 +69,33 @@ class Tools_menu{
     }
 
     initialize_buttons(){
+        this.initialize_add_strip_btn();
+        this.initialize_add_text_field_btn();
+        this.initialize_add_gallery_btn();
+    }
+
+    initialize_add_strip_btn(){
         this.add_strip_btn = document.querySelector(".add_strip");
         this.add_strip_btn.addEventListener("click", () => {
             let strip = new Strip();
             document.querySelector("main").append(strip.strip);
         });
+    }
+
+    initialize_add_text_field_btn(){
+        this.add_text_field_btn = document.querySelector(".add_text");
+        this.add_text_field_btn.addEventListener("click", () => {
+            let text_field = new Text_field();
+            document.querySelector("main").append(text_field.text_field);
+        })
+    }
+
+    initialize_add_gallery_btn(){
+        this.add_gallery_btn = document.querySelector(".add_gallery");
+        this.add_gallery_btn.addEventListener("click", () => {
+            let gallery = new Gallery();
+            document.querySelector("main").append(gallery.gallery);
+        })
     }
 
 
