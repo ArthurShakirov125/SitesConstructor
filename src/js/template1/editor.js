@@ -42,6 +42,8 @@ class Tools_menu{
     <ul class="add_form">Добавить элемент</ul>
     <ul class="add_gallery">Добавить элемент</ul>
     </li>`;
+
+    add_strip_btn;
     
 
     constructor(editor){
@@ -51,6 +53,7 @@ class Tools_menu{
         this.menu_layout.style.display = "none";
         this.menu_layout.innerHTML = this.menu_content;
         editor.append(this.menu_layout);
+        this.initialize_buttons();
     }
 
     show_or_hide(){
@@ -62,6 +65,14 @@ class Tools_menu{
             this.menu_layout.style.display = "none";
             this.isMenuShowed = false;
         }
+    }
+
+    initialize_buttons(){
+        this.add_strip_btn = document.querySelector(".add_strip");
+        this.add_strip_btn.addEventListener("click", () => {
+            let strip = new Strip();
+            document.querySelector("main").append(strip.strip);
+        });
     }
 
 
