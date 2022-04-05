@@ -21,7 +21,7 @@ class Editable_elem{
         });
     }
 
-    sing_event(event_type, event_method){
+    sign_event(event_type, event_method){
         this.html_elem.addEventListener(event_type, event_method);
     }
 

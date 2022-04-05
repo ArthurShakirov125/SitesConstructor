@@ -1,11 +1,12 @@
 class Gallery{
     //
     gallery;
+    img_src = "images/SCANDINAVIA 14 DAYS-4.jpg";
     gallery_layout = `
     <div class="gallery">
-        <div><image class="gallery_img" src="images/SCANDINAVIA 14 DAYS-4.jpg"></div>
-        <div><image class="gallery_img" src="images/SCANDINAVIA 14 DAYS-4.jpg"></div>
-        <div><image class="gallery_img" src="images/SCANDINAVIA 14 DAYS-4.jpg"></div>
+        <div><image class="gallery_img" src="${this.img_src}"></div>
+        <div><image class="gallery_img" src="${this.img_src}"></div>
+        <div><image class="gallery_img" src="${this.img_src}"></div>
     </div>
     `;
 
