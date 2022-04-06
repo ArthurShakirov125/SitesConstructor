@@ -1,5 +1,4 @@
-
-@font-size:20px;
+@font-size:11px;
 @icon-size:60px;
 @border-radius: 0.5;
 @editor-width:@icon-size+ 10px;
@@ -24,15 +23,49 @@
     border-radius: 25px;
     background-color: @temp_color;
     position: relative;
+
+    .temp_button{
+      background: @temp_color;
+      color: @temp_color;
+      border: @temp_color;
+    }
+
+    &:hover{
+
+      .temp_button{
+        background: white;
+        color: black;
+
+        &:hover{
+          background: black;
+          color: white;
+          transform: translateY(-7px);
+        }
+      }
+
+    }
 }
-.temp_button{
+  .temp_button{
     position: absolute;
     bottom: 100px;
     left: 125px;
     width: 250px;
     height: 42px;
     font-size: @font-size;
+    border-radius: 45px;
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    text-align: center;
+    letter-spacing: 3px;
+    font-weight: 600;
+    color: black;
+    background: white;
+    transition: .3s;
+    cursor: pointer;
+  
+  
 }
+
 .editor{
     padding: 5px;
     position: fixed;
