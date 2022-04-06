@@ -97,8 +97,4 @@ class Tools_menu{
             document.querySelector("main").append(gallery.gallery);
         })
     }
-
-
-
-
 }
