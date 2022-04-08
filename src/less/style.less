@@ -1,5 +1,4 @@
-@font-size:24px;
-@button-font-size: 11px;
+@font-size:11px;
 @icon-size:60px;
 @border-radius: 0.5;
 @editor-width:@icon-size+ 10px;
@@ -33,13 +32,6 @@
 
       .temp_button{
         opacity: 1;
-        background: black;
-        color: white;
-
-        &:hover{
-          background: white;
-          color: black;
-        }
       }
 
     }
@@ -50,19 +42,41 @@
     left: 125px;
     width: 250px;
     height: 42px;
-    font-size: @button-font-size;
-    border-radius: 45px;
+    font-size: @font-size;
+    border: 1px solid;
+    border-image: linear-gradient(180deg,   #FC7C0D, #FC7C0D, #ff9d09, #ff9d09);
+    border-image-slice: 1;
+    margin: 10px 20px;
     font-family: 'Montserrat', sans-serif;
     text-transform: uppercase;
-    text-align: center;
-    letter-spacing: 3px;
-    font-weight: 600;
-    color: black;
-    background: white;
-    transition: .3s;
+    overflow: hidden;
+    letter-spacing: 2px;
+    transition: .8s cubic-bezier(.165, .84, .44, 1);
     cursor: pointer;
-  
-  
+
+    .sliding-button:before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 0;
+      width: 100%;
+      z-index: -1;
+      color: white;
+      background: linear-gradient(180deg, #ff3000, #ed0200, #ff096c, #d50082);
+      transition: .8s cubic-bezier(.165, .84, .44, 1);
+    }
+    
+    &:hover{
+      background: black;
+      color: white;
+    }
+
+    .sliding-button:hover:before {
+      bottom: 0%;
+      top: auto;
+      height: 100%;
+    }
 }
 
 .editor{
