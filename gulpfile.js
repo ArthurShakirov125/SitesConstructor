@@ -117,6 +117,7 @@ const temp1_scriptsBuild = () =>{
     return src([
         "src/js/template1/**/*.js",
     ])
+    .pipe(sourceMaps.init())
     .pipe(babel({
         presets:["@babel/env"]
     }))
@@ -124,6 +125,7 @@ const temp1_scriptsBuild = () =>{
     .pipe(uglify({
         toplevel:true
     }).on("error", notify.onError()))
+    .pipe(sourceMaps.write())
     .pipe(dest("dist"))
     .pipe(browserSync.stream())
 }

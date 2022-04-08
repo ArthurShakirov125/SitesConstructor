@@ -11,7 +11,7 @@ class Editable_elem{
         
     }
 
-    initialize_elem(){
+    initialize_ele(){
         this.html_elem.addEventListener("dblclick", () => {
             if(!this.isElemChosen){
                 this.html_elem.style.border = this.chosen_style;
