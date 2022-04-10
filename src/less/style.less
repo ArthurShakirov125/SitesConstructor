@@ -18,11 +18,24 @@
     align-items: center;
 }
 .template{
-    width: 500px;
+    width: 550px;
     height: 450px;
     border-radius: 25px;
     background-color: @temp_color;
     position: relative;
+
+    .img_temp2{
+      width: 550px;
+      height: 450px;
+      object-fit: cover;
+      border-radius: 25px;
+      transition: 0.5s;
+
+      &:hover{
+        transition: 0.5s;
+        filter: brightness(50%);
+      }
+    }
 
     .temp_button{
      opacity: 0;
@@ -39,12 +52,13 @@
   .temp_button{
     position: absolute;
     bottom: 100px;
-    left: 125px;
+    left: 155px;
+    top: 200px;
     width: 250px;
     height: 42px;
     font-size: @font-size;
     border: 1px solid;
-    border-image: linear-gradient(180deg,   #FC7C0D, #FC7C0D, #ff9d09, #ff9d09);
+    border-image: linear-gradient(180deg,   #0dd0fc01, #0dd0fc01, #0dd0fc01, #0dd0fc01);
     border-image-slice: 1;
     text-transform: uppercase;
     letter-spacing: 5px;
