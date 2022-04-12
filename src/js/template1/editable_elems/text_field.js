@@ -4,7 +4,7 @@ class Text_field{
 
     constructor(){
         this.initialize();
-        this.editable_elem = new Editable_elem(this.text_field);
+        this.editable_elem = new Editable_elem(this.text_field, "text");
     }
 
     initialize(){

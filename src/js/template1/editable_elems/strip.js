@@ -5,7 +5,7 @@ class Strip{
 
     constructor(){
         this.initialize();
-        this.editable_elem = new Editable_elem(this.strip);
+        this.editable_elem = new Editable_elem(this.strip, "strip");
     }
 
     initialize(){

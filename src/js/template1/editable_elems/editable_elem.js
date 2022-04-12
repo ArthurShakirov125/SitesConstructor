@@ -3,10 +3,12 @@ class Editable_elem{
     chosen_style = "solid blue 4px";
     isElemChosen = false;
     edit_window;
+    elem_type; // text, strip, gallery
 
-    constructor(elem){
+
+    constructor(elem, elem_type){
         this.html_elem = elem;
-        this.edit_window = new Edit_window(this.html_elem);
+        this.edit_window = new Edit_window(this.html_elem, elem_type);
         this.initialize_elem();
         
     }
