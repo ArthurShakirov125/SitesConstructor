@@ -6,27 +6,30 @@ class Edit_window{
     edit_window_layout_for_strip = `
     <h3>Settings<h3>
     <div class="pallete">
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
+    <div class="darkred"></div>
+    <div class="red"></div>
+    <div class="darkorange"></div>
+    <div class="orange"></div>
+    <div class="gold"></div>
+    <div class="yellow"></div>
+    <div class="green"></div>
+    <div class="greenyellow"></div>
+    <div class="steelblue"></div>
+    <div class="cyan"></div>
+    <div class="darkblue"></div>
+    <div class="blue"></div>
+    <div class="indigo"></div>
+    <div class="purple"></div>
+    <div class="pink"></div>
+    <div class="black"></div>
+    <div class="gray"></div>
+    <div class="silver"></div>
+    <div class="lightgrey"></div>
+    <div class="white"></div>
     </div>
+
+    <div class="sec_btn add_sec">Добавить блок</div>
+    <div class="sec_btn del_sec">Удалить блок</div>
     `;
 
     edit_window_layout_for_gallery = `
@@ -57,6 +60,7 @@ class Edit_window{
     initialize_edit_window(elem_type){
         switch (elem_type) {
             case "strip":
+                //this.initialize_edit_window_for_strip(); 
                 this.edit_window.innerHTML = this.edit_window_layout_for_strip;
                 break;
 
@@ -71,4 +75,49 @@ class Edit_window{
                 break;
         }
     }
+
+
+    initialize_edit_window_for_strip(){
+        let add_btn = new Add_section_btn(this.dependent_elem);
+    }
+}
+
+class Add_section_btn{
+    strip;
+    btn;
+    constructor(strip){
+        this.btn = document.querySelector(".add_sec");
+        console.log(this.btn);
+        this.strip = strip;
+        this.initialize();
+    }
+
+    initialize(){
+        this.btn.addEventListener("click", () => {
+            this.add_section();
+        });
+    }
+
+    add_section(){
+        if(this.strip.quantity_of_sec == 0){
+            this.strip.quantity_of_sec = 1;
+            this.strip.innerHTML = this.strip.strip_layout_one_sec;
+        }
+        if(this.strip.quantity_of_sec == 1){
+            this.strip.quantity_of_sec = 2;
+            this.strip.innerHTML = this.strip.strip_layout_two_sec;
+        }
+        if(this.strip.quantity_of_sec == 2){
+            this.strip.quantity_of_sec = 3;
+            this.strip.innerHTML = this.strip.strip_layout_three_sec;
+        }
+        if(this.strip.quantity_of_sec == 3){
+            this.strip.quantity_of_sec = 4;
+            this.strip.innerHTML = this.strip.strip_layout_four_sec;
+        }
+        if(this.strip.quantity_of_sec == 4){
+            return;
+        }
+    }
+
 }
