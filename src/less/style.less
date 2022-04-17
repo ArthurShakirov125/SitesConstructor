@@ -74,6 +74,17 @@
 
 }
 
+.effect_button{
+  border-image: linear-gradient(180deg,   #0dd0fc01, #0dd0fc01, #0dd0fc01, #0dd0fc01);
+  transition: .5s cubic-bezier(.165, .84, .44, 1);
+  cursor: pointer;
+  background-color: white;
+  
+  &:hover{
+    background: orange;
+  }
+}
+
 .editor{
     padding: 5px;
     position: fixed;
@@ -172,6 +183,10 @@
     .palette_button_foreground{
       margin-bottom: -7px;
       width: 45px;
+
+      &:hover{
+        color: orange;
+      }
     }
 
     .palette_button_background{

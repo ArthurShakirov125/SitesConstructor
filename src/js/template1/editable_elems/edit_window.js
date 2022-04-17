@@ -46,10 +46,10 @@ class Edit_window {
     <div class="select_font_section"><input class="font_input_size" maxlength="5" value="15" size="1"> <div class="icon_editor"><img class="font_editor_check_mate" src="images/sprite.svg#check-solid" alt=""></div></div>
     <p>Эффекты</p>
     <div class="select_font_section"> 
-    <button><div style="font-weight: bold; font-size: 20px;">A</div></button>
-    <button><div style="font-weight: 100; font-size: 20px;">A</div></button>
-    <button><div style="font-style: italic; font-size: 20px;">A</div></button>
-    <button><div style="font-style: uppercase; font-size: 20px;">A</div></button>
+    <button class="effect_button"><div style="font-weight: bold; font-size: 20px; cursor: pointer;">A</div></button>
+    <button class="effect_button"><div style="font-weight: 100; font-size: 20px; cursor: pointer;">A</div></button>
+    <button class="effect_button"><div style="font-style: italic; font-size: 20px; cursor: pointer;">A</div></button>
+    <button class="effect_button"><div style="font-style: uppercase; font-size: 20px; cursor: pointer;">A</div></button>
     <a href="#"><img class="palette_button_foreground" src="images/sprite.svg#palette-solid" alt=""></a>
     <a href="#"><img class="palette_button_background" src="images/sprite.svg#palette-solid" alt=""></a>
     </div>
