@@ -37,22 +37,21 @@ class Edit_window {
     `;
 
     edit_window_layout_for_text = `
-    <h3>Settings<h3>
+    <h3>Настройки<h3>
     <div class="select_font_section">
     <p>Выбор шрифта</p>
     <div>Montserrat <div class="icon_editor"><img class="font_editor_icon" src="images/chevron-vector-style1.png" alt=""></div></div>
     </div>
     <p>Размер шрифта</p>
-    <div class="select_font_section"><input style="font-size: 20px; text-align: center;" maxlength="5" value="15" size="1"> <div class="icon_editor"><img class="font_editor_check_mate" src="images/sprite.svg#check-solid" alt=""></div></div>
+    <div class="select_font_section"><input class="font_input_size" maxlength="5" value="15" size="1"> <div class="icon_editor"><img class="font_editor_check_mate" src="images/sprite.svg#check-solid" alt=""></div></div>
     <p>Эффекты</p>
-    <div> 
-    <button><div style="font-family: bold; font-size: 20px;">A</div></button>
-    <button><div style="font-size: 20px; font-family: italic;">A</div></button>
+    <div class="select_font_section"> 
+    <button><div style="font-weight: bold; font-size: 20px;">A</div></button>
+    <button><div style="font-weight: 100; font-size: 20px;">A</div></button>
     <button><div style="font-style: italic; font-size: 20px;">A</div></button>
     <button><div style="font-style: uppercase; font-size: 20px;">A</div></button>
-    <div>
-    <a href="#"><div><img style="width: 50px" src="images/sprite.svg#palette-solid" alt=""></div></a>
-    </div> 
+    <a href="#"><img class="palette_button_foreground" src="images/sprite.svg#palette-solid" alt=""></a>
+    <a href="#"><img class="palette_button_background" src="images/sprite.svg#palette-solid" alt=""></a>
     </div>
     `;
 
