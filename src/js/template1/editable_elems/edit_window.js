@@ -62,12 +62,10 @@ class Edit_window {
     `;
 
 
-    constructor(elem, elem_type) {
+    constructor() {
         this.edit_window = document.createElement("div");
         this.edit_window.classList.add("edit_window");
-        this.initialize_edit_window(elem_type);
         document.querySelector("main").append(this.edit_window);
-        this.dependent_elem = elem;
     }
 
     show() {
@@ -78,11 +76,11 @@ class Edit_window {
         this.edit_window.style.display = "none";
     }
 
-    initialize_edit_window(elem_type) {
+    initialize_edit_window(elem, elem_type) {
+        this.dependent_elem = elem;
         switch (elem_type) {
             case "strip":
-                //this.initialize_edit_window_for_strip(); 
-                this.edit_window.innerHTML = this.edit_window_layout_for_strip;
+                this.initialize_edit_window_for_strip(); 
                 break;
 
             case "gallery":
@@ -99,7 +97,16 @@ class Edit_window {
 
 
     initialize_edit_window_for_strip(){
-        let add_btn = new Add_section_btn(this.dependent_elem);
+        this.edit_window.innerHTML = this.edit_window_layout_for_strip;
+        this.initialize_color_btn();
+        //let add_btn = new Add_section_btn(this.dependent_elem);
+    }
+
+    initialize_color_btn(){
+        let btn = document.querySelector(".darkred");
+        btn.addEventListener("click", () => {
+            this.dependent_elem.style.backgroundColor = "darkred";
+        });
     }
 }
 
