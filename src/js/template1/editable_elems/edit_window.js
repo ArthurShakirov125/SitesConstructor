@@ -99,7 +99,7 @@ class Edit_window {
     initialize_edit_window_for_strip(){
         this.edit_window.innerHTML = this.edit_window_layout_for_strip;
         this.initialize_color_btn();
-        //let add_btn = new Add_section_btn(this.dependent_elem);
+        let add_btn = new Add_section_btn(this.dependent_elem);
     }
 
     initialize_color_btn(){
@@ -120,14 +120,18 @@ class Add_section_btn{
     btn;
     constructor(strip){
         this.btn = document.querySelector(".add_sec");
-        console.log(this.btn);
         this.strip = strip;
+        console.log("kek");
+        console.log(this.strip);
         this.initialize();
     }
 
     initialize(){
         this.btn.addEventListener("click", () => {
             this.add_section();
+            console.log("kek");
+            console.log(this.strip);
+            console.log("le");
         });
     }
 
