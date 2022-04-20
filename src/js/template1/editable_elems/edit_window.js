@@ -35,10 +35,10 @@ class Edit_window {
     edit_window_layout_for_gallery = `
     <h3>Настройки<h3>
     <div class="div_choose_picture">
-    <a href="#" class="choose_picture">Выбор Картинки</a>
+    <p class="choose_picture">Выбор Картинки</p>
     </div>
     <div class= "div_choose_picture">
-    <a href="#" class="delete_picture">Удаление картинок</a>
+    <p class="delete_picture">Удаление картинок</p>
     </div>
     `;
 
