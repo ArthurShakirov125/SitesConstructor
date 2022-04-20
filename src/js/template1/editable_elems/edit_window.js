@@ -33,7 +33,13 @@ class Edit_window {
     `;
 
     edit_window_layout_for_gallery = `
-    <h3>Settings<h3>
+    <h3>Настройки<h3>
+    <div class="div_choose_picture">
+    <a href="#" class="choose_picture">Выбор Картинки</a>
+    </div>
+    <div class= "div_choose_picture">
+    <a href="#" class="delete_picture">Удаление картинок</a>
+    </div>
     `;
 
     edit_window_layout_for_text = `
