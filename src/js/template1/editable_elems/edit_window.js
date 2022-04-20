@@ -107,6 +107,11 @@ class Edit_window {
         btn.addEventListener("click", () => {
             this.dependent_elem.style.backgroundColor = "darkred";
         });
+
+        let btn1 = document.querySelector(".red");
+        btn1.addEventListener("click", () => {
+            this.dependent_elem.style.backgroundColor = "red";
+        });
     }
 }
 
