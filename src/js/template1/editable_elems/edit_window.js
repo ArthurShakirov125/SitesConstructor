@@ -35,10 +35,10 @@ class Edit_window {
     edit_window_layout_for_gallery = `
     <h3>Настройки<h3>
     <div class="div_choose_picture">
-    <a href="#" class="choose_picture">Выбор Картинки</a>
+    <p class="choose_picture">Выбор Картинки</p>
     </div>
     <div class= "div_choose_picture">
-    <a href="#" class="delete_picture">Удаление картинок</a>
+    <p class="delete_picture">Удаление картинок</p>
     </div>
     `;
 
@@ -111,6 +111,96 @@ class Edit_window {
         let btn1 = document.querySelector(".red");
         btn1.addEventListener("click", () => {
             this.dependent_elem.style.backgroundColor = "red";
+        });
+
+        let btn2 = document.querySelector(".darkorange");
+        btn2.addEventListener("click", () => {
+            this.dependent_elem.style.backgroundColor = "darkorange";
+        });
+
+        let btn3 = document.querySelector(".orange");
+        btn3.addEventListener("click", () => {
+            this.dependent_elem.style.backgroundColor = "orange";
+        });
+
+        let btn4 = document.querySelector(".gold");
+        btn4.addEventListener("click", () => {
+            this.dependent_elem.style.backgroundColor = "gold";
+        });
+
+        let btn5 = document.querySelector(".yellow");
+        btn5.addEventListener("click", () => {
+            this.dependent_elem.style.backgroundColor = "yellow";
+        });
+
+        let btn6 = document.querySelector(".green");
+        btn6.addEventListener("click", () => {
+            this.dependent_elem.style.backgroundColor = "green";
+        });
+
+        let btn7 = document.querySelector(".greenyellow");
+        btn7.addEventListener("click", () => {
+            this.dependent_elem.style.backgroundColor = "greenyellow";
+        });
+
+        let btn8 = document.querySelector(".steelblue");
+        btn8.addEventListener("click", () => {
+            this.dependent_elem.style.backgroundColor = "steelblue";
+        });
+
+        let btn9 = document.querySelector(".cyan");
+        btn9.addEventListener("click", () => {
+            this.dependent_elem.style.backgroundColor = "cyan";
+        });
+
+        let btn10 = document.querySelector(".darkblue");
+        btn10.addEventListener("click", () => {
+            this.dependent_elem.style.backgroundColor = "darkblue";
+        });
+
+        let btn11 = document.querySelector(".blue");
+        btn11.addEventListener("click", () => {
+            this.dependent_elem.style.backgroundColor = "blue";
+        });
+
+        let btn12 = document.querySelector(".indigo");
+        btn12.addEventListener("click", () => {
+            this.dependent_elem.style.backgroundColor = "indigo";
+        });
+
+        let btn13 = document.querySelector(".purple");
+        btn13.addEventListener("click", () => {
+            this.dependent_elem.style.backgroundColor = "purple";
+        });
+
+        let btn14 = document.querySelector(".pink");
+        btn14.addEventListener("click", () => {
+            this.dependent_elem.style.backgroundColor = "pink";
+        });
+
+        let btn15 = document.querySelector(".black");
+        btn15.addEventListener("click", () => {
+            this.dependent_elem.style.backgroundColor = "black";
+        });
+
+        let btn16 = document.querySelector(".gray");
+        btn16.addEventListener("click", () => {
+            this.dependent_elem.style.backgroundColor = "gray";
+        });
+
+        let btn17 = document.querySelector(".silver");
+        btn17.addEventListener("click", () => {
+            this.dependent_elem.style.backgroundColor = "silver";
+        });
+
+        let btn18 = document.querySelector(".lightgrey");
+        btn18.addEventListener("click", () => {
+            this.dependent_elem.style.backgroundColor = "lightgrey";
+        });
+
+        let btn19 = document.querySelector(".white");
+        btn19.addEventListener("click", () => {
+            this.dependent_elem.style.backgroundColor = "white";
         });
     }
 }
