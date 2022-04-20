@@ -7,8 +7,9 @@ class Editable_elem{
 
 
     constructor(elem, elem_type){
+        this.elem_type = elem_type;
         this.html_elem = elem;
-        this.edit_window = new Edit_window(this.html_elem, elem_type);
+        this.edit_window = new Edit_window();
         this.initialize_elem();
         
     }
@@ -18,6 +19,7 @@ class Editable_elem{
             if(!this.isElemChosen){
                 this.html_elem.style.border = this.chosen_style;
                 this.isElemChosen = true;
+                this.edit_window.initialize_edit_window(this.html_elem, this.elem_type);
                 this.edit_window.show()
             }
             else{
