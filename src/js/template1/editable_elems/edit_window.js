@@ -2,11 +2,11 @@ class Edit_window {
     edit_window;
     dependent_elem;
 
-    findDependentElement(dependent_element){
+    findDependentElement(dependent_element) {
         this.dependent_elem = dependent_element;
     }
 
-    addMethod(EventType,Method){
+    addMethod(EventType, Method) {
         addEventListener(EventType, Method);
     }
 
@@ -59,10 +59,10 @@ class Edit_window {
     <div class="select_font_section"><input class="font_input_size" maxlength="2" value="15" size="1"> <div id="settings_accept" class="icon_editor"><img class="font_editor_check_mate" src="images/sprite.svg#check-solid" alt=""></div></div>
     <p>Эффекты</p>
     <div class="select_font_section"> 
-    <button class="effect_button"><div style="font-weight: bold; font-size: 20px; cursor: pointer;">A</div></button>
-    <button class="effect_button"><div style="font-weight: 100; font-size: 20px; cursor: pointer;">A</div></button>
-    <button class="effect_button"><div style="font-style: italic; font-size: 20px; cursor: pointer;">A</div></button>
-    <button class="effect_button"><div style="font-style: uppercase; font-size: 20px; cursor: pointer;">A</div></button>
+    <button id="bold_button" class="bold_button effect_button"><div style="font-weight: bold; font-size: 20px; cursor: pointer;">A</div></button>
+    <button id="norm_button" class="norm_button effect_button"><div style="font-weight: 100; font-size: 20px; cursor: pointer;">A</div></button>
+    <button id="italic_button" class="italic_button effect_button"><div style="font-style: italic; font-size: 20px; cursor: pointer;">A</div></button>
+    <button id="underline_button" class="underline_button effect_button"><div style="text-decoration: underline; font-size: 20px; cursor: pointer;">A</div></button>
     <a href="#"><img class="palette_button_foreground" src="images/sprite.svg#palette-solid" alt=""></a>
     <a href="#"><img class="palette_button_background" src="images/sprite.svg#palette-solid" alt=""></a>
     </div>
@@ -105,6 +105,7 @@ class Edit_window {
     initialize_edit_window_for_text() {
         this.edit_window.innerHTML = this.edit_window_layout_for_text;
         this.initialize_font_size_btn();
+        this.initialize_font_style_btn();
     }
 
     initialize_font_size_btn() {
@@ -116,6 +117,56 @@ class Edit_window {
         font_size_button.addMethod("click", () => {
             let font_size = font_size_input.value;
             font_size_button.dependent_elem.setAttribute("style", "font-size:" + font_size + "px");
+        });
+
+        font_size_input.addEventListener("keydown", (e) => {
+            if (e.code == "Enter") {
+                let font_size = font_size_input.value;
+                font_size_button.dependent_elem.setAttribute("style", "font-size:" + font_size + "px");
+            }
+        });
+    }
+
+    ClearFontStyle(){
+        this.dependent_elem.classList.remove("bold");
+        this.dependent_elem.classList.remove("normal");
+        this.dependent_elem.classList.remove("italic");
+        this.dependent_elem.classList.remove("underline");
+    }
+
+    
+
+    initialize_font_style_btn() {
+        let font_style_bold_button = new Edit_window(document.querySelector(".bold_button"));
+        font_style_bold_button.findDependentElement(document.querySelector(".text_field_text"));
+
+        font_style_bold_button.addMethod("click", () => {
+            font_style_bold_button.ClearFontStyle();
+            font_style_bold_button.dependent_elem.classList.add("bold");
+        });
+
+        let font_style_normal_button = new Edit_window(document.querySelector(".norm_button"));
+        font_style_normal_button.findDependentElement(document.querySelector(".text_field_text"));
+
+        font_style_normal_button.addMethod("click", () => {
+            font_style_normal_button.ClearFontStyle();
+            font_style_normal_button.dependent_elem.classList.add("normal");
+        });
+
+        let font_style_italic_button = new Edit_window(document.querySelector(".italic_button"));
+        font_style_italic_button.findDependentElement(document.querySelector(".text_field_text"));
+
+        font_style_italic_button.addMethod("click", () => {
+            font_style_italic_button.ClearFontStyle();
+            font_style_italic_button.dependent_elem.classList.add("italic");
+        });
+
+        let font_style_underline_button = new Edit_window(document.querySelector(".underline_button"));
+        font_style_underline_button.findDependentElement(document.querySelector(".text_field_text"));
+
+        font_style_underline_button.addMethod("click", () => {
+            font_style_underline_button.ClearFontStyle();
+            font_style_underline_button.dependent_elem.classList.add("underline");
         });
     }
 
