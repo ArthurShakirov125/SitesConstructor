@@ -2,6 +2,13 @@ class Edit_window {
     edit_window;
     dependent_elem;
 
+    findDependentElement(dependent_element){
+        this.dependent_elem = dependent_element;
+    }
+
+    addMethod(EventType,Method){
+        addEventListener(EventType, Method);
+    }
 
     edit_window_layout_for_strip = `
     <h3>Settings<h3>
@@ -49,7 +56,7 @@ class Edit_window {
     <div>Montserrat <div class="icon_editor"><img class="font_editor_icon" src="images/chevron-vector-style1.png" alt=""></div></div>
     </div>
     <p>Размер шрифта</p>
-    <div class="select_font_section"><input class="font_input_size" maxlength="5" value="15" size="1"> <div class="icon_editor"><img class="font_editor_check_mate" src="images/sprite.svg#check-solid" alt=""></div></div>
+    <div class="select_font_section"><input class="font_input_size" maxlength="2" value="15" size="1"> <div id="settings_accept" class="icon_editor"><img class="font_editor_check_mate" src="images/sprite.svg#check-solid" alt=""></div></div>
     <p>Эффекты</p>
     <div class="select_font_section"> 
     <button class="effect_button"><div style="font-weight: bold; font-size: 20px; cursor: pointer;">A</div></button>
@@ -80,7 +87,7 @@ class Edit_window {
         this.dependent_elem = elem;
         switch (elem_type) {
             case "strip":
-                this.initialize_edit_window_for_strip(); 
+                this.initialize_edit_window_for_strip();
                 break;
 
             case "gallery":
@@ -88,21 +95,38 @@ class Edit_window {
                 break;
 
             case "text":
-                this.edit_window.innerHTML = this.edit_window_layout_for_text;
+                this.initialize_edit_window_for_text();
                 break;
             default:
                 break;
         }
     }
 
+    initialize_edit_window_for_text() {
+        this.edit_window.innerHTML = this.edit_window_layout_for_text;
+        this.initialize_font_size_btn();
+    }
 
-    initialize_edit_window_for_strip(){
+    initialize_font_size_btn() {
+        let font_size_button = new Edit_window(document.getElementById("settings_accept"));
+        font_size_button.findDependentElement(document.querySelector(".text_field_text"));
+
+        let font_size_input = document.querySelector(".font_input_size");
+
+        font_size_button.addMethod("click", () => {
+            let font_size = font_size_input.value;
+            font_size_button.dependent_elem.setAttribute("style", "font-size:" + font_size + "px");
+        });
+    }
+
+
+    initialize_edit_window_for_strip() {
         this.edit_window.innerHTML = this.edit_window_layout_for_strip;
         this.initialize_color_btn();
         let add_btn = new Add_section_btn(this.dependent_elem);
     }
 
-    initialize_color_btn(){
+    initialize_color_btn() {
         let btn = document.querySelector(".darkred");
         btn.addEventListener("click", () => {
             this.dependent_elem.style.backgroundColor = "darkred";
@@ -205,10 +229,10 @@ class Edit_window {
     }
 }
 
-class Add_section_btn{
+class Add_section_btn {
     strip;
     btn;
-    constructor(strip){
+    constructor(strip) {
         this.btn = document.querySelector(".add_sec");
         this.strip = strip;
         console.log("kek");
@@ -216,7 +240,7 @@ class Add_section_btn{
         this.initialize();
     }
 
-    initialize(){
+    initialize() {
         this.btn.addEventListener("click", () => {
             this.add_section();
             console.log("kek");
@@ -225,24 +249,24 @@ class Add_section_btn{
         });
     }
 
-    add_section(){
-        if(this.strip.quantity_of_sec == 0){
+    add_section() {
+        if (this.strip.quantity_of_sec == 0) {
             this.strip.quantity_of_sec = 1;
             this.strip.innerHTML = this.strip.strip_layout_one_sec;
         }
-        if(this.strip.quantity_of_sec == 1){
+        if (this.strip.quantity_of_sec == 1) {
             this.strip.quantity_of_sec = 2;
             this.strip.innerHTML = this.strip.strip_layout_two_sec;
         }
-        if(this.strip.quantity_of_sec == 2){
+        if (this.strip.quantity_of_sec == 2) {
             this.strip.quantity_of_sec = 3;
             this.strip.innerHTML = this.strip.strip_layout_three_sec;
         }
-        if(this.strip.quantity_of_sec == 3){
+        if (this.strip.quantity_of_sec == 3) {
             this.strip.quantity_of_sec = 4;
             this.strip.innerHTML = this.strip.strip_layout_four_sec;
         }
-        if(this.strip.quantity_of_sec == 4){
+        if (this.strip.quantity_of_sec == 4) {
             return;
         }
     }
