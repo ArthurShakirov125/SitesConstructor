@@ -112,28 +112,34 @@ class Edit_window {
         });
     }
 
+    clearStyles(){
+        this.dependent_elem.classList.remove("bold");
+        this.dependent_elem.classList.remove("italic");
+        this.dependent_elem.classList.remove("underline");
+    }
 
     initialize_font_style_btn() {
         let button_bold = document.querySelector("#bold_button");
         button_bold.addEventListener("click", () => {
-            this.dependent_elem.setAttribute("style", "font-weight: bold")
+            this.dependent_elem.classList.add("bold");
         })
 
         let button_norm = document.querySelector("#norm_button");
         button_norm.addEventListener("click", () => {
             this.dependent_elem.setAttribute("style", "font-style: none")
+            this.clearStyles();
         })
 
         
         let button_underline = document.querySelector("#underline_button");
         button_underline.addEventListener("click", () => {
-            this.dependent_elem.setAttribute("style", "text-decoration: underline")
+            this.dependent_elem.classList.add("underline");
         })
 
        let btn_italic = document.querySelector("#italic_button");
        
        btn_italic.addEventListener("click", () => {
-           this.dependent_elem.setAttribute("style", "font-style: italic");
+            this.dependent_elem.classList.add("italic");
        });
     }
 
