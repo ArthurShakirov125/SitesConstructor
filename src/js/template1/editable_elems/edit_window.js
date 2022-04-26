@@ -54,6 +54,7 @@ class Edit_window {
     <button id="italic_button" class="effect_button"><div class="italic_effect">A</div></button>
     <button id="underline_button" class="effect_button"><div class="underline_effect">A</div></button>
     </div>
+    <p class="edit_text">Редактировать текст</p>
     `;
 
 
@@ -94,6 +95,7 @@ class Edit_window {
         this.edit_window.innerHTML = this.edit_window_layout_for_text;
         this.initialize_font_size_btn();
         this.initialize_font_style_btn();
+        this.initializze_edit_text_btn();
     }
 
     initialize_font_size_btn() {
@@ -143,6 +145,12 @@ class Edit_window {
        });
     }
 
+    initializze_edit_text_btn(){
+        let btn = document.querySelector(".edit_text");
+        btn.addEventListener("click", () => {
+            this.dependent_elem.setAttribute("contenteditable", "true");
+        });
+    }
 
     initialize_edit_window_for_strip() {
         this.edit_window.innerHTML = this.edit_window_layout_for_strip;
