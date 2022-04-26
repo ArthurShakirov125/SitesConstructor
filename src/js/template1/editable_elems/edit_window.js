@@ -147,8 +147,16 @@ class Edit_window {
 
     initializze_edit_text_btn(){
         let btn = document.querySelector(".edit_text");
+        let isEditable = false;
         btn.addEventListener("click", () => {
-            this.dependent_elem.setAttribute("contenteditable", "true");
+            if(!isEditable){
+                this.dependent_elem.setAttribute("contenteditable", "true");
+                isEditable = true;
+            }
+            else{
+                this.dependent_elem.setAttribute("contenteditable", "false");
+            }
+            
         });
     }
 
