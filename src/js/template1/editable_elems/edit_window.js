@@ -34,9 +34,6 @@ class Edit_window {
     <div class="lightgrey"></div>
     <div class="white"></div>
     </div>
-
-    <div class="sec_btn add_sec">Добавить блок</div>
-    <div class="sec_btn del_sec">Удалить блок</div>
     `;
 
     edit_window_layout_for_gallery = `
@@ -134,7 +131,6 @@ class Edit_window {
     initialize_edit_window_for_strip() {
         this.edit_window.innerHTML = this.edit_window_layout_for_strip;
         this.initialize_color_btn();
-        let add_btn = new Add_section_btn(this.dependent_elem);
     }
 
     initialize_color_btn() {
@@ -238,48 +234,4 @@ class Edit_window {
             this.dependent_elem.style.backgroundColor = "white";
         });
     }
-}
-
-class Add_section_btn {
-    strip;
-    btn;
-    constructor(strip) {
-        this.btn = document.querySelector(".add_sec");
-        this.strip = strip;
-        console.log("kek");
-        console.log(this.strip);
-        this.initialize();
-    }
-
-    initialize() {
-        this.btn.addEventListener("click", () => {
-            this.add_section();
-            console.log("kek");
-            console.log(this.strip);
-            console.log("le");
-        });
-    }
-
-    add_section() {
-        if (this.strip.quantity_of_sec == 0) {
-            this.strip.quantity_of_sec = 1;
-            this.strip.innerHTML = this.strip.strip_layout_one_sec;
-        }
-        if (this.strip.quantity_of_sec == 1) {
-            this.strip.quantity_of_sec = 2;
-            this.strip.innerHTML = this.strip.strip_layout_two_sec;
-        }
-        if (this.strip.quantity_of_sec == 2) {
-            this.strip.quantity_of_sec = 3;
-            this.strip.innerHTML = this.strip.strip_layout_three_sec;
-        }
-        if (this.strip.quantity_of_sec == 3) {
-            this.strip.quantity_of_sec = 4;
-            this.strip.innerHTML = this.strip.strip_layout_four_sec;
-        }
-        if (this.strip.quantity_of_sec == 4) {
-            return;
-        }
-    }
-
 }
