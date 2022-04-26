@@ -114,7 +114,11 @@ class Edit_window {
     
 
     initialize_font_style_btn() {
-      
+       let btn_italic = document.querySelector("#italic_button");
+       
+       btn_italic.addEventListener("click", () => {
+           this.dependent_elem.setAttribute("style", "font-style: italic");
+       });
     }
 
 
