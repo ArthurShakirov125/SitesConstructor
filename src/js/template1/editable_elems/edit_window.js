@@ -129,6 +129,12 @@ class Edit_window {
         button_underline.addEventListener("click", () => {
             this.dependent_elem.setAttribute("style", "text-decoration: underline")
         })
+
+       let btn_italic = document.querySelector("#italic_button");
+       
+       btn_italic.addEventListener("click", () => {
+           this.dependent_elem.setAttribute("style", "font-style: italic");
+       });
     }
 
 
