@@ -34,6 +34,7 @@ class Edit_window {
     <div class="lightgrey"></div>
     <div class="white"></div>
     </div>
+
     `;
 
     edit_window_layout_for_gallery = `
@@ -104,20 +105,17 @@ class Edit_window {
     }
 
     initialize_font_size_btn() {
-        let font_size_button = new Edit_window(document.getElementById("settings_accept"));
-        font_size_button.findDependentElement(document.querySelector(".text_field_text"));
+        let font_size_btn = document.querySelector("#settings_accept");
 
         let font_size_input = document.querySelector(".font_input_size");
 
-        font_size_button.addMethod("click", () => {
-            let font_size = font_size_input.value;
-            font_size_button.dependent_elem.setAttribute("style", "font-size:" + font_size + "px");
-        });
+        font_size_btn.addEventListener("click", () => {
+            this.dependent_elem.setAttribute("style", "font-size:" + font_size_input.value + "px");
+        }); 
 
         font_size_input.addEventListener("keydown", (e) => {
-            if (e.code == "Enter") {
-                let font_size = font_size_input.value;
-                font_size_button.dependent_elem.setAttribute("style", "font-size:" + font_size + "px");
+            if(e.code == "Enter"){
+                this.dependent_elem.setAttribute("style", "font-size:" + font_size_input.value + "px");
             }
         });
     }
