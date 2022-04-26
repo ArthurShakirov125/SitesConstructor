@@ -103,18 +103,32 @@ class Edit_window {
 
         font_size_btn.addEventListener("click", () => {
             this.dependent_elem.setAttribute("style", "font-size:" + font_size_input.value + "px");
-        }); 
+        });
 
         font_size_input.addEventListener("keydown", (e) => {
-            if(e.code == "Enter"){
+            if (e.code == "Enter") {
                 this.dependent_elem.setAttribute("style", "font-size:" + font_size_input.value + "px");
             }
         });
     }
-    
+
 
     initialize_font_style_btn() {
-      
+        let button_bold = document.querySelector("#bold_button");
+        button_bold.addEventListener("click", () => {
+            this.dependent_elem.setAttribute("style", "font-weight: bold")
+        })
+
+        let button_norm = document.querySelector("#norm_button");
+        button_norm.addEventListener("click", () => {
+            this.dependent_elem.setAttribute("style", "font-style: none")
+        })
+
+        
+        let button_underline = document.querySelector("#underline_button");
+        button_underline.addEventListener("click", () => {
+            this.dependent_elem.setAttribute("style", "text-decoration: underline")
+        })
     }
 
 
