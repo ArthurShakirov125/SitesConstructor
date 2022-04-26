@@ -2,14 +2,6 @@ class Edit_window {
     edit_window;
     dependent_elem;
 
-    findDependentElement(dependent_element) {
-        this.dependent_elem = dependent_element;
-    }
-
-    addMethod(EventType, Method) {
-        addEventListener(EventType, Method);
-    }
-
     edit_window_layout_for_strip = `
     <h3>Settings<h3>
     <div class="pallete">
