@@ -4,24 +4,6 @@ class Text_field{
     edit_window;
     path = "images/chevron-vector-style1.png";
     path2 = "images/sprite.svg#check-solid";
-
-    edit_window_layout_for_text = `
-    <h3>Настройки<h3>
-    <div class="select_font_section">
-    <p>Выбор шрифта</p>
-    <div>Montserrat <div class="icon_editor"><img class="font_editor_icon" src="images/chevron-vector-style1.png" alt=""></div></div>
-    </div>
-    <p>Размер шрифта</p>
-    <div class="select_font_section"><input class="font_input_size" maxlength="2" value="25" size="1"> <div id="settings_accept" class="icon_editor">
-    <img class="font_editor_check_mate" src="images/sprite.svg#check-solid" alt=""></div></div>
-    <p>Эффекты</p>
-    <div class="select_font_section"> 
-    <button id="bold_button" class="effect_button"><div class="bold_effect">A</div></button>
-    <button id="norm_button" class="effect_button"><div class="norm_effect">A</div></button>
-    <button id="italic_button" class="effect_button"><div class="italic_effect">A</div></button>
-    <button id="underline_button" class="effect_button"><div class="underline_effect">A</div></button>
-    </div>
-    `;
     
     constructor(){
         this.initialize();
@@ -120,9 +102,7 @@ class Text_field{
         div_font_size.classList.add("select_font_section");
         this.edit_window.window.append(div_font_size);
         div_font_size.append(input);
-        div_font_size.append(div_setting_accept);
-
-        
+        div_font_size.append(div_setting_accept);   
     }
 
     clearStyles(){
@@ -132,8 +112,6 @@ class Text_field{
     }
 
     initialize_font_style_btn() {
-
-
         let p = document.createElement("p");
         p.innerText = "Эффекты";
         this.edit_window.window.append(p);
