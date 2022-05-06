@@ -3,6 +3,7 @@ class Text_field{
     text_field;
     edit_window;
     path = "images/chevron-vector-style1.png";
+    path2 = "images/sprite.svg#check-solid";
 
     edit_window_layout_for_text = `
     <h3>Настройки<h3>
@@ -88,6 +89,37 @@ class Text_field{
     }
 
     initialize_font_size_btn() {
+        let p = document.createElement("p");
+        p.innerText = "Размер шрифта";
+        this.edit_window.window.append(p);
+
+        let img_accept = document.createElement("img");
+        img_accept.classList.add("font_editor_check_mate");
+        img_accept.hasAttributes.path2;
+        this.edit_window.window.append(img_accept);
+        
+
+        let div_setting_accept = document.createElement("div");
+        div_setting_accept.classList.add("icon_editor");
+        this.edit_window.window.append(div_setting_accept);
+        div_setting_accept.append(img_accept)
+
+        let input = document.createElement("input");
+        input.classList.add("font_input_size");
+        input.maxLength = "2";
+        input.value = "25";
+        input.size = "1";
+        this.edit_window.window.append(input)
+        input.append(div_setting_accept);
+        input.append(img_accept);
+
+        let div_font_size = document.createElement("div");
+        div_font_size.classList.add("select_font_section");
+        this.edit_window.window.append(div_font_size);
+        div_font_size.append(input)
+        div_font_size.append(div_setting_accept)
+        div_font_size.append(img_accept);
+
         
     }
 
