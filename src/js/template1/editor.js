@@ -39,13 +39,14 @@ class Tools_menu{
     <li>
     <ul class="add_strip">Добавить блок</ul>
     <ul class="add_text">Добавить текст</ul>
-    <ul class="add_form">Добавить элемент</ul>
+    <ul class="add_list">Добавить список</ul>
     <ul class="add_gallery">Добавить галлерею</ul>
     </li>`;
 
     add_strip_btn;
     add_text_field_btn;
     add_gallery_btn;
+    add_list_btn;
 
     constructor(editor){
         this.editor = editor;
@@ -72,6 +73,7 @@ class Tools_menu{
         this.initialize_add_strip_btn();
         this.initialize_add_text_field_btn();
         this.initialize_add_gallery_btn();
+        this.initialize_add_list_btn();
     }
 
     initialize_add_strip_btn(){
@@ -95,6 +97,14 @@ class Tools_menu{
         this.add_gallery_btn.addEventListener("click", () => {
             let gallery = new Gallery();
             document.querySelector("main").append(gallery.gallery);
+        })
+    }
+
+    initialize_add_list_btn(){
+        this.add_list_btn = document.querySelector(".add_list");
+        this.add_list_btn.addEventListener("click", () => {
+            let list = new List();
+            document.querySelector("main").append(list.list);
         })
     }
 }
