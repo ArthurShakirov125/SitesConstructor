@@ -23,7 +23,7 @@ class Strip{
         "gray",
         "silver",
         "lightgrey",
-        "white"
+        "white",
     ]
 
     strip_layout = `<div class="temp_strip">

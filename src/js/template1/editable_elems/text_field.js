@@ -1,6 +1,7 @@
 class Text_field{
     text_field_layout;
     text_field;
+    edit_window;
 
     edit_window_layout_for_text = `
     <h3>Настройки<h3>
@@ -22,7 +23,6 @@ class Text_field{
     
     constructor(){
         this.initialize();
-        this.editable_elem = new Editable_elem(this.text_field, "text");
     }
 
     initialize(){
@@ -33,15 +33,23 @@ class Text_field{
         добавить свой текст и настроить шрифт. Здесь вы можете рассказать посетителям подробнее о себе</p>
         `;
         this.text_field.innerHTML = this.text_field_layout;
+        this.initialize_edit_window_for_text();
 
     }
 
 
     initialize_edit_window_for_text() {
-        this.window.innerHTML = this.edit_window_layout_for_text;
-        this.initialize_font_size_btn();
-        this.initialize_font_style_btn();
-        this.initializze_edit_text_btn();
+        this.edit_window = new Edit_window(this.text_field);
+
+        let head = document.createElement("h3");
+        head.innerText = "Настройки";
+
+
+        this.edit_window.window.append(head);
+
+        //this.initialize_font_size_btn();
+        //this.initialize_font_style_btn();
+        //this.initializze_edit_text_btn();
     }
 
     initialize_font_size_btn() {
@@ -67,28 +75,14 @@ class Text_field{
     }
 
     initialize_font_style_btn() {
-        let button_bold = document.querySelector("#bold_button");
-        button_bold.addEventListener("click", () => {
-            this.dependent_elem.classList.add("bold");
-        })
 
-        let button_norm = document.querySelector("#norm_button");
-        button_norm.addEventListener("click", () => {
-            this.dependent_elem.setAttribute("style", "font-style: none")
-            this.clearStyles();
-        })
+        let button_bold = document.createElement("button");
 
+        let button_norm = document.createElement("button");
         
-        let button_underline = document.querySelector("#underline_button");
-        button_underline.addEventListener("click", () => {
-            this.dependent_elem.classList.add("underline");
-        })
+        let button_underline = document.createElement("button");
 
-       let btn_italic = document.querySelector("#italic_button");
-       
-       btn_italic.addEventListener("click", () => {
-            this.dependent_elem.classList.add("italic");
-       });
+        let btn_italic = document.createElement("button");
     }
 
     initializze_edit_text_btn(){
