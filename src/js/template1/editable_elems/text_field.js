@@ -2,6 +2,7 @@ class Text_field{
     text_field_layout;
     text_field;
     edit_window;
+    path = "images/chevron-vector-style1.png";
 
     edit_window_layout_for_text = `
     <h3>Настройки<h3>
@@ -38,6 +39,8 @@ class Text_field{
     }
 
 
+
+
     initialize_edit_window_for_text() {
         this.edit_window = new Edit_window(this.text_field);
 
@@ -47,25 +50,47 @@ class Text_field{
 
         this.edit_window.window.append(head);
 
-        //this.initialize_font_size_btn();
+        this.initialize_font_btn();
+        this.initialize_font_size_btn();
         //this.initialize_font_style_btn();
         //this.initializze_edit_text_btn();
     }
 
+    initialize_font_btn(){
+        let p = document.createElement("p");
+        p.innerText = "Выбор шрифта";
+        this.edit_window.window.append(p);
+
+       
+
+        let icon_edit = document.createElement("div");
+        icon_edit.classList.add("icon_editor");
+        this.edit_window.window.append(icon_edit);
+
+        
+
+        let img_edit = document.createElement("img");
+        img_edit.classList.add("font_editor_icon");
+        img_edit.src = this.path;
+        icon_edit.append(img_edit);
+
+        let montserrat = document.createElement("div");
+        montserrat.innerText = "Montserrat";
+        this.edit_window.window.append(montserrat);
+        montserrat.append(icon_edit);
+
+
+        let sel_font_sec = document.createElement("div");
+        sel_font_sec.classList.add("select_font_section");
+        this.edit_window.window.append(sel_font_sec);
+
+       
+        
+
+    }
+
     initialize_font_size_btn() {
-        let font_size_btn = document.querySelector("#settings_accept");
-
-        let font_size_input = document.querySelector(".font_input_size");
-
-        font_size_btn.addEventListener("click", () => {
-            this.dependent_elem.setAttribute("style", "font-size:" + font_size_input.value + "px");
-        });
-
-        font_size_input.addEventListener("keydown", (e) => {
-            if (e.code == "Enter") {
-                this.dependent_elem.setAttribute("style", "font-size:" + font_size_input.value + "px");
-            }
-        });
+        
     }
 
     clearStyles(){
