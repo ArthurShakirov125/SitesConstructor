@@ -96,6 +96,12 @@ class Text_field{
             this.text_field.setAttribute("style", "font-size:"+input.value+"px");
         });
 
+        input.addEventListener("keydown", (e) => {
+            if (e.code == "Enter") {
+                this.text_field.setAttribute("style", "font-size:" + input.value + "px");
+            }
+        });
+
         div_setting_accept.append(img_accept);
 
         let div_font_size = document.createElement("div");
