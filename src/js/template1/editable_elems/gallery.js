@@ -22,6 +22,5 @@ class Gallery{
     constructor(){
         this.gallery = document.createElement("div");
         this.gallery.innerHTML = this.gallery_layout;
-        this.editable_elem = new Editable_elem(this.gallery, "gallery");
     }
 }
