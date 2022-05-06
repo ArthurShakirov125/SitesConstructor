@@ -18,7 +18,6 @@ class Text_field{
     <button id="italic_button" class="effect_button"><div class="italic_effect">A</div></button>
     <button id="underline_button" class="effect_button"><div class="underline_effect">A</div></button>
     </div>
-    <p class="edit_text">Редактировать текст</p>
     `;
     
     constructor(){
@@ -43,13 +42,12 @@ class Text_field{
 
         let head = document.createElement("h3");
         head.innerText = "Настройки";
-
-
         this.edit_window.window.append(head);
 
         //this.initialize_font_size_btn();
         //this.initialize_font_style_btn();
-        //this.initializze_edit_text_btn();
+        this.initialize_font_style_btn();
+        this.initializze_edit_text_btn();
     }
 
     initialize_font_size_btn() {
@@ -69,34 +67,112 @@ class Text_field{
     }
 
     clearStyles(){
-        this.dependent_elem.classList.remove("bold");
-        this.dependent_elem.classList.remove("italic");
-        this.dependent_elem.classList.remove("underline");
+        this.text_field.classList.remove("bold");
+        this.text_field.classList.remove("italic");
+        this.text_field.classList.remove("underline");
     }
 
     initialize_font_style_btn() {
 
+
+        let p = document.createElement("p");
+        p.innerText = "Эффекты";
+        this.edit_window.window.append(p);
+
+        let select_font_section = document.createElement("div");
+        select_font_section.classList.add("select_font_section");
+
+        this.initialize_bold_button(select_font_section);
+        this.initialize_norm_button(select_font_section);
+        this.initialize_underline_button(select_font_section);
+        this.initialize_italic_button(select_font_section);
+
+        this.edit_window.window.append(select_font_section);
+    }
+
+    initialize_bold_button(select_font_section){
+
+        let div = document.createElement("div");
+        div.classList.add("bold_effect");
+        div.innerText = "A";
+
         let button_bold = document.createElement("button");
+        button_bold.append(div);
+        button_bold.classList.add("effect_button");
 
-        let button_norm = document.createElement("button");
-        
-        let button_underline = document.createElement("button");
+        button_bold.addEventListener("click", () => {
+            this.text_field.classList.add("bold");
+        });
 
-        let btn_italic = document.createElement("button");
+        select_font_section.append(button_bold);
+    }
+
+    initialize_norm_button(select_font_section){
+
+        let div = document.createElement("div");
+        div.classList.add("norm_effect");
+        div.innerText = "A";
+
+        let btn = document.createElement("button");
+        btn.append(div);
+        btn.classList.add("effect_button");
+
+        btn.addEventListener("click", () => {
+            this.clearStyles();
+        });
+
+        select_font_section.append(btn);
+    }
+
+    initialize_underline_button(select_font_section){
+
+        let div = document.createElement("div");
+        div.classList.add("underline_effect");
+        div.innerText = "A";
+
+        let btn = document.createElement("button");
+        btn.append(div);
+        btn.classList.add("effect_button");
+
+        btn.addEventListener("click", () => {
+            this.text_field.classList.add("underline");
+        });
+
+        select_font_section.append(btn);
+    }
+
+    initialize_italic_button(select_font_section){
+        let div = document.createElement("div");
+        div.classList.add("italic_effect");
+        div.innerText = "A";
+
+        let btn = document.createElement("button");
+        btn.append(div);
+        btn.classList.add("effect_button");
+
+        btn.addEventListener("click", () => {
+            this.text_field.classList.add("italic");
+        });
+
+        select_font_section.append(btn);
     }
 
     initializze_edit_text_btn(){
-        let btn = document.querySelector(".edit_text");
+        let btn = document.createElement("p");
+        btn.classList.add("edit_text");
+        btn.innerText = "Редактировать текст";
         let isEditable = false;
         btn.addEventListener("click", () => {
             if(!isEditable){
-                this.dependent_elem.setAttribute("contenteditable", "true");
+                this.text_field.setAttribute("contenteditable", "true");
                 isEditable = true;
             }
             else{
-                this.dependent_elem.setAttribute("contenteditable", "false");
-            }
-            
+                this.text_field.setAttribute("contenteditable", "false");
+                isEditable = false;
+            }   
         });
+
+        this.edit_window.window.append(btn);
     }
 }
