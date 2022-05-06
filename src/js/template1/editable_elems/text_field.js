@@ -12,7 +12,8 @@ class Text_field{
     <div>Montserrat <div class="icon_editor"><img class="font_editor_icon" src="images/chevron-vector-style1.png" alt=""></div></div>
     </div>
     <p>Размер шрифта</p>
-    <div class="select_font_section"><input class="font_input_size" maxlength="2" value="25" size="1"> <div id="settings_accept" class="icon_editor"><img class="font_editor_check_mate" src="images/sprite.svg#check-solid" alt=""></div></div>
+    <div class="select_font_section"><input class="font_input_size" maxlength="2" value="25" size="1"> <div id="settings_accept" class="icon_editor">
+    <img class="font_editor_check_mate" src="images/sprite.svg#check-solid" alt=""></div></div>
     <p>Эффекты</p>
     <div class="select_font_section"> 
     <button id="bold_button" class="effect_button"><div class="bold_effect">A</div></button>
@@ -50,7 +51,6 @@ class Text_field{
 
         this.initialize_font_btn();
         this.initialize_font_size_btn();
-        //this.initialize_font_style_btn();
         this.initialize_font_style_btn();
         this.initializze_edit_text_btn();
     }
@@ -95,14 +95,7 @@ class Text_field{
 
         let img_accept = document.createElement("img");
         img_accept.classList.add("font_editor_check_mate");
-        img_accept.hasAttributes.path2;
-        this.edit_window.window.append(img_accept);
-        
-
-        let div_setting_accept = document.createElement("div");
-        div_setting_accept.classList.add("icon_editor");
-        this.edit_window.window.append(div_setting_accept);
-        div_setting_accept.append(img_accept)
+        img_accept.src = this.path2;        
 
         let input = document.createElement("input");
         input.classList.add("font_input_size");
@@ -110,15 +103,24 @@ class Text_field{
         input.value = "25";
         input.size = "1";
         this.edit_window.window.append(input)
-        input.append(div_setting_accept);
-        input.append(img_accept);
+        
+
+        let div_setting_accept = document.createElement("div");
+        div_setting_accept.classList.add("icon_editor");
+        this.edit_window.window.append(div_setting_accept);
+        div_setting_accept.append(img_accept);
+
+        div_setting_accept.addEventListener("click", () => {
+            this.text_field.setAttribute("style", "font-size:"+input.value+"px");
+        });
+
+        div_setting_accept.append(img_accept);
 
         let div_font_size = document.createElement("div");
         div_font_size.classList.add("select_font_section");
         this.edit_window.window.append(div_font_size);
-        div_font_size.append(input)
-        div_font_size.append(div_setting_accept)
-        div_font_size.append(img_accept);
+        div_font_size.append(input);
+        div_font_size.append(div_setting_accept);
 
         
     }
