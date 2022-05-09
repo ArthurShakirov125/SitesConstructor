@@ -2,6 +2,14 @@ class List{
     list;
     edit_window;
     list_layout;
+    listItems = [];
+
+    arrows = [
+        "^",
+        ">",
+        "v",
+        "<"
+    ]
 
     constructor(){
         this.initialize();
@@ -22,6 +30,7 @@ class List{
             let li = document.createElement("li");
             li.innerText = "Элемент списка";
             this.list_layout.append(li);
+            this.listItems[i] = li;
         }
 
         this.list.append(this.list_layout);
@@ -48,8 +57,8 @@ class List{
         let btn_horiz = document.createElement("div");
         let btn_vert = document.createElement("div");
 
-        btn_horiz.innerText = "==";
-        btn_vert.innerText = "||";
+        btn_horiz.innerText = "Горизонтальное выравнивание";
+        btn_vert.innerText = "Вертикальное выравнивание";
 
         btn_horiz.classList.add("effect_button");
         btn_vert.classList.add("effect_button");
@@ -74,17 +83,41 @@ class List{
         this.edit_window.window.append(p);
 
         let div = document.createElement("div");
-        div.classList.add("select_font_section");
+        div.classList.add("select_margin_section");
 
         let fourMargins = [];
 
         for(let i = 0; i < 4; i++){
             let input = document.createElement("input");
             input.classList.add("font_input_size");
+            input.value = "0";
             input.size = "1";
-            div.append(input);
+            input.maxLength = "2";
             fourMargins[i] = input;
+
+            let wrap = document.createElement("div");
+            let arrw = document.createElement("div");
+            arrw.innerText = this.arrows[i];
+            wrap.append(arrw);
+            wrap.append(input);
+
+            input.addEventListener("keydown", (e) => {
+                if (e.code == "Enter") {
+                    let top = fourMargins[0].value + "px ";
+                    let right = fourMargins[1].value + "px ";
+                    let bottom = fourMargins[2].value + "px ";
+                    let left = fourMargins[3].value + "px";
+
+                    this.listItems.forEach(element => {
+                        element.setAttribute("style", "margin:" + top + right + bottom + left);
+                    }); 
+                }
+            })
+
+            div.append(wrap);
         };
+
+
 
         this.edit_window.window.append(div);
     }
