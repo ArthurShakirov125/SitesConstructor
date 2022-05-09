@@ -19,7 +19,6 @@ class List{
         this.list_layout = document.createElement("ul");
 
         for(let i = 0; i < 4; i++){
-            console.log(i);
             let li = document.createElement("li");
             li.innerText = "Элемент списка";
             this.list_layout.append(li);
@@ -34,6 +33,7 @@ class List{
 
         this.initialize_display_btn();
         this.initializze_edit_text_btn();
+        this.initialize_margin();
 
     }
 
@@ -66,6 +66,27 @@ class List{
         this.edit_window.window.append(div);
 
 
+    }
+
+    initialize_margin(){
+        let p = document.createElement("p");
+        p.innerText = "Отступы";
+        this.edit_window.window.append(p);
+
+        let div = document.createElement("div");
+        div.classList.add("select_font_section");
+
+        let fourMargins = [];
+
+        for(let i = 0; i < 4; i++){
+            let input = document.createElement("input");
+            input.classList.add("font_input_size");
+            input.size = "1";
+            div.append(input);
+            fourMargins[i] = input;
+        };
+
+        this.edit_window.window.append(div);
     }
 
     initializze_edit_text_btn(){
