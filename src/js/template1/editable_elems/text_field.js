@@ -5,7 +5,11 @@ class Text_field{
     path = "images/chevron-vector-style1.png";
     path2 = "images/sprite.svg#check-solid";
     path3 = "images/sprite.svg#question-solid";
-    
+    reference;
+    reference_text = 
+    "HTML-элементы — основа языка HTML. Каждый HTML-документ состоит из дерева HTML-элементов и текста. Каждый HTML-элемент обозначается начальным (открывающим) и конечным (закрывающим) тегом. Открывающий и закрывающий теги содержат имя элемента. Например <h1>Заголовок</h1> это тег заголовка. Текст внутри такого тега будет выглядеть вот так";
+    reference_header;
+    isReferenceShowed = false;
     constructor(){
         this.initialize();
     }
@@ -217,12 +221,24 @@ class Text_field{
 
     initialize_tags_btn(){
 
+        this.initialize_reference();
         let div = document.createElement("div");
         div.classList.add("select_font_section");
         let btn = document.createElement("p");
 
         let icon_edit = document.createElement("div");
         icon_edit.classList.add("icon_editor");
+
+        icon_edit.addEventListener("click", () => {
+           if(!this.isReferenceShowed){
+                this.reference.style.display = "block";
+                this.isReferenceShowed = true;
+           }
+           else{
+            this.reference.style.display = "none";
+            this.isReferenceShowed = false;
+           }
+        });
 
         let img_edit = document.createElement("img");
         img_edit.classList.add("font_editor_check_mate");
@@ -240,5 +256,16 @@ class Text_field{
         div.append(btn);
         div.append(icon_edit);
         this.edit_window.window.append(div);
+    }
+
+    initialize_reference(){
+        this.reference = document.createElement("div");
+        this.reference.classList.add("reference");
+        this.reference.innerText = this.reference_text;
+
+        this.reference_header = document.createElement("h1");
+        this.reference_header.innerText = "Заголовок";
+        this.reference.append(this.reference_header);
+        this.edit_window.window.append(this.reference);
     }
 }
