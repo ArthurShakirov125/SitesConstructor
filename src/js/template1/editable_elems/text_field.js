@@ -4,6 +4,7 @@ class Text_field{
     edit_window;
     path = "images/chevron-vector-style1.png";
     path2 = "images/sprite.svg#check-solid";
+    path3 = "images/sprite.svg#question-solid";
     
     constructor(){
         this.initialize();
@@ -31,24 +32,23 @@ class Text_field{
         head.innerText = "Настройки";
         this.edit_window.window.append(head);
 
-        this.initialize_font_btn();
         this.initialize_font_size_btn();
         this.initialize_font_style_btn();
         this.initializze_edit_text_btn();
+        this.initialize_tags_btn();
     }
+
+    
 
     initialize_font_btn(){
         let p = document.createElement("p");
         p.innerText = "Выбор шрифта";
         this.edit_window.window.append(p);
 
-       
-
         let icon_edit = document.createElement("div");
         icon_edit.classList.add("icon_editor");
-        this.edit_window.window.append(icon_edit);
-
         
+        this.edit_window.window.append(icon_edit);
 
         let img_edit = document.createElement("img");
         img_edit.classList.add("font_editor_icon");
@@ -64,10 +64,6 @@ class Text_field{
         let sel_font_sec = document.createElement("div");
         sel_font_sec.classList.add("select_font_section");
         this.edit_window.window.append(sel_font_sec);
-
-       
-        
-
     }
 
     initialize_font_size_btn() {
@@ -217,5 +213,32 @@ class Text_field{
         });
 
         this.edit_window.window.append(btn);
+    }
+
+    initialize_tags_btn(){
+
+        let div = document.createElement("div");
+        div.classList.add("select_font_section");
+        let btn = document.createElement("p");
+
+        let icon_edit = document.createElement("div");
+        icon_edit.classList.add("icon_editor");
+
+        let img_edit = document.createElement("img");
+        img_edit.classList.add("font_editor_check_mate");
+        img_edit.src = this.path3;
+        icon_edit.append(img_edit);
+
+        btn.classList.add("edit_text");
+        btn.innerText = "Применить </html> теги";
+
+        btn.addEventListener("click", () => {
+            let text = this.text_field.innerText;
+            this.text_field.innerHTML = text;
+        });
+
+        div.append(btn);
+        div.append(icon_edit);
+        this.edit_window.window.append(div);
     }
 }
