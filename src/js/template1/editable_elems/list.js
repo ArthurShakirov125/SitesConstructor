@@ -5,10 +5,10 @@ class List{
     listItems = [];
 
     arrows = [
-        "^",
-        ">",
-        "v",
-        "<"
+        "images/sprite.svg#chevron-up-solid",
+        "images/sprite.svg#angle-right-solid",
+        "images/sprite.svg#chevron-down-solid",
+        "images/sprite.svg#angle-left-solid"
     ]
 
     constructor(){
@@ -96,8 +96,9 @@ class List{
             fourMargins[i] = input;
 
             let wrap = document.createElement("div");
-            let arrw = document.createElement("div");
-            arrw.innerText = this.arrows[i];
+            let arrw = document.createElement("img");
+            arrw.classList.add("ArrowPic");
+            arrw.src = this.arrows[i];
             wrap.append(arrw);
             wrap.append(input);
 
