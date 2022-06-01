@@ -4,7 +4,7 @@
 @editor-width:@icon-size+ 10px;
 @editor_window_width:400px;
 
-@temp_color:black;
+@temp_color:orange;
 @green:#16A085;
 @green-l:#8CC63F;
 @orange:#EB9532;
@@ -26,7 +26,7 @@
     width: 450px;
     height: 350px;
     border-radius: 25px;
-    background-color: @temp_color;
+    background-color: black;
     position: relative;
     
 
@@ -61,7 +61,7 @@
     { 
       margin-bottom: 20px;   
     }
-}
+  }
   .temp_button{
     position: absolute;
     bottom: 100px;
@@ -75,18 +75,19 @@
     border-image-slice: 1;
     text-transform: uppercase;
     letter-spacing: 5px;
-    transition: .5s cubic-bezier(.165, .84, .44, 1);
+    transition: .8s cubic-bezier(.165, .84, .44, 1);
     cursor: pointer;
 
     
     &:hover{
       background: black;
       color: white;
-      transform: rotateX(-10deg) translateY(-10px);
+      width: 270px;
+      height: 50px;
+      font-size: 13px;
+      left: 95px;
     }
-
-
-}
+  }
 
 .effect_button{
   border-image: linear-gradient(180deg,   #0dd0fc01, #0dd0fc01, #0dd0fc01, #0dd0fc01);

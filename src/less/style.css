@@ -51,13 +51,16 @@
   border-image-slice: 1;
   text-transform: uppercase;
   letter-spacing: 5px;
-  transition: 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+  transition: 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
   cursor: pointer;
 }
 .temp_button:hover {
   background: black;
   color: white;
-  transform: rotateX(-10deg) translateY(-10px);
+  width: 270px;
+  height: 50px;
+  font-size: 13px;
+  left: 95px;
 }
 .effect_button {
   border-image: linear-gradient(180deg, #0dd0fc01, #0dd0fc01, #0dd0fc01, #0dd0fc01);
@@ -101,10 +104,10 @@
   border-radius: 30px;
 }
 .icon::after {
-  box-shadow: inset 0 0 0 1px black;
+  box-shadow: inset 0 0 0 1px orange;
 }
 .icon::before {
-  background: black;
+  background: orange;
   box-shadow: inset 0 0 0 60px #FFFFFF;
   z-index: -1;
 }
@@ -146,10 +149,10 @@
   border-radius: 30px;
 }
 .icon_editor::after {
-  box-shadow: inset 0 0 0 1px black;
+  box-shadow: inset 0 0 0 1px orange;
 }
 .icon_editor::before {
-  background: black;
+  background: orange;
   box-shadow: inset 0 0 0 60px #FFFFFF;
   z-index: -1;
 }
@@ -176,7 +179,7 @@
   transition: all 0.25s ease;
 }
 .editor_window ul:hover {
-  background-color: black;
+  background-color: orange;
 }
 .temp_strip {
   width: 100%;
@@ -268,7 +271,7 @@
   transition: all 0.25s ease;
 }
 .edit_window .edit_text:hover {
-  background-color: black;
+  background-color: orange;
 }
 .edit_window .sec_btn {
   margin-top: 5px;
@@ -280,7 +283,7 @@
   font-size: 18px;
 }
 .edit_window .sec_btn:hover {
-  background-color: black;
+  background-color: orange;
 }
 .edit_window .pallete {
   margin: auto;
