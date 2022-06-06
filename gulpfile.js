@@ -147,7 +147,6 @@ const temp2_scriptsBuild = () =>{
 
 const scripts = () =>{
     return src([
-        "src/js/components/**/*.js",
         "src/js/main.js"
     ])
     .pipe(sourceMaps.init())
